@@ -343,9 +343,8 @@ function playStarryNightFinale() {
         .then(() => console.log("Playing finale music"))
         .catch(error => console.log("Audio needs user interaction first"));
 }
-
-        function moveButton() {
-     playClickSound();   
+function moveButton() {
+    playClickSound();   
     const button = document.querySelector('.moving-button');
     const container = document.querySelector('.button-container');
     const buttonWidth = button.offsetWidth;
@@ -356,12 +355,9 @@ function playStarryNightFinale() {
     if (clickCount >= buttonTexts.length - 1) {
         button.classList.add('final-transition');
         playStarryNightFinale();
-        // Add page fade out after button starts transforming
         setTimeout(() => {
             document.body.classList.add('page-fade-out');
         }, 900);
-        
-        // Redirect after both animations complete
         setTimeout(() => {
             window.location.href = '2.html';
         }, 2000);
@@ -385,21 +381,21 @@ function playStarryNightFinale() {
     } while (distance < minDistance);
 
     button.classList.add('button-fade-out');
-         
 
     setTimeout(() => {
         button.style.left = `${newX}px`;
         button.style.top = `${newY}px`;
-        button.textContent = buttonTexts[clickCount + 1];
+        button.textContent = buttonTexts[clickCount];
         button.classList.remove('button-fade-out');
         button.classList.add('button-fade-in');
+        clickCount++;
     }, 300);
 
     setTimeout(() => {
         button.classList.remove('button-fade-in');
     }, 1500);
-    clickCount++;
 }
+
 // Add this function to create stars
 function createStars() {
     const starsContainer = document.createElement('div');
