@@ -311,8 +311,9 @@
     <button class="fancy-button" onclick="fadeOutButton(this)">Getting warmer...just like my feelings for you✨</button>
     <button class="fancy-button" onclick="fadeOutButton(this)">Your persistence is as attractive as your eyes</button>
     <button class="fancy-button" onclick="fadeOutButton(this)">Playing hard to get? I like that 😏</button>
-    <button class="fancy-button" onclick="fadeOutButton(this)">Now come closer, let me take you somewhere special...💖</button>
+    <button class="fancy-button final-button" onclick="goToNextPage()">Now come closer, let me take you somewhere special...💖</button>
 </div>
+
 
     <footer>
         <p>@Mbuya2.15</p>
@@ -394,6 +395,20 @@ function moveButton() {
     setTimeout(() => {
         button.classList.remove('button-fade-in');
     }, 1500);
+}
+function goToNextPage() {
+    playClickSound();
+    const button = document.querySelector('.final-button');
+    button.classList.add('final-transition');
+    playStarryNightFinale();
+    
+    setTimeout(() => {
+        document.body.classList.add('page-fade-out');
+    }, 900);
+    
+    setTimeout(() => {
+        window.location.href = '2.html';
+    }, 2000);
 }
 
 // Add this function to create stars
