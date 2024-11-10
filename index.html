@@ -321,15 +321,6 @@
 
     <script>
         
-        const buttonTexts = [
-    "I know you can't resist me 😘",
-    "Your smile is trouble😑... the best kind😏 ",
-    "Getting warmer... just like my feelings for you ✨",
-   "Your persistence is as attractive as your eyes, one more to go😜",
-    "You caught me😅...Now, come closer, i wanna take you somewhere special... 💖",
-];
-
-
         let clickCount = 0;
         function playClickSound() {
     const clickAudio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-magical-sparkle-transition-2608.mp3');
@@ -344,26 +335,7 @@ function playStarryNightFinale() {
         .then(() => console.log("Playing finale music"))
         .catch(error => console.log("Audio needs user interaction first"));
 }
-function moveButton() {
-    playClickSound();   
-    const button = document.querySelector('.moving-button');
-    const container = document.querySelector('.button-container');
-    const buttonWidth = button.offsetWidth;
-    const buttonHeight = button.offsetHeight;
-    const minDistance = 200;
-    const margin = 20;
-   
-    if (clickCount >= buttonTexts.length - 1) {
-        button.classList.add('final-transition');
-        playStarryNightFinale();
-        setTimeout(() => {
-            document.body.classList.add('page-fade-out');
-        }, 900);
-        setTimeout(() => {
-            window.location.href = '2.html';
-        }, 2000);
-        return;
-    }
+
 
     const containerRect = container.getBoundingClientRect();
     const maxX = containerRect.width - buttonWidth/2 - margin;
