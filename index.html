@@ -214,6 +214,52 @@
     color: transparent;
     font-weight: bold;
 }
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fancy-button {
+    padding: 15px 25px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    animation: buttonAppear 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fancy-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+}
+
+@keyframes buttonAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add staggered animation delay for each button */
+.fancy-button:nth-child(1) { animation-delay: 0.1s; }
+.fancy-button:nth-child(2) { animation-delay: 0.2s; }
+.fancy-button:nth-child(3) { animation-delay: 0.3s; }
+.fancy-button:nth-child(4) { animation-delay: 0.4s; }
+.fancy-button:nth-child(5) { animation-delay: 0.5s; }
+.fancy-button:nth-child(6) { animation-delay: 0.6s; }
 
     </style>
 </head>
@@ -225,9 +271,17 @@
     <p>But you don't get to celebrate that when <span>I'm here</span> 😙</p>
 </div>
     <div class="button-container">
-        <button class="moving-button" onclick="moveButton()">Click here...only if ur single😏</button>
+        <button class="moving-button" onclick="moveButton()">Click here...</button>
     </div>
-    
+    <div class="button-grid">
+    <button class="fancy-button">I know you can't resist me 😘</button>
+    <button class="fancy-button">Playing hard to get? I like that😏</button>
+    <button class="fancy-button">Your smile is trouble😑... the best kind😏</button>
+    <button class="fancy-button">Getting warmer... just like my feelings for you ✨</button>
+    <button class="fancy-button">Your persistence is as attractive as your eyes 😜</button>
+    <button class="fancy-button">Come closer, let me take you somewhere special... 💖</button>
+</div>
+
 
 
     <footer>
@@ -397,9 +451,6 @@ document.addEventListener('DOMContentLoaded', createStars);
 <audio id="starryNightFinale">
     <source src="https://assets.mixkit.co/music/preview/mixkit-dreaming-big-31.mp3" type="audio/mpeg">
 </audio>
-<div class="welcome-text">
-    <p>But you don't get to celebrate that when <span>I'm here</span> 😙</p>
-</div>
 
 </body>
 </html>
