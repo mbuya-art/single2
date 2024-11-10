@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singles day</title>
+    <style>
+       body {
+    background: linear-gradient(to bottom, #0f0524, #2c1445, #1a0b2e);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    max-width: 100vw; /* Added max-width */
+    box-sizing: border-box; /* Added box-sizing */
+}
+
+
+        header {
+            background-color: rgba(209, 196, 233, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            margin: 20px;
+        }
+
+        .button-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Added for visibility of container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.moving-button {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transform: translate(-50%, -50%);
+    max-width: 200px; /* Reduced width */
+    white-space: normal; /* Enables word wrap */
+    text-align: center;
+    line-height: 1.3;
+    word-wrap: break-word;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.moving-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(255,182,193,0.3);
+    border-color: rgba(255,255,255,0.9);
+}
+.button-fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+.button-fade-in {
+    animation: fadeIn 1.0s ease-in forwards;
+}
+
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+.final-transition {
+    animation: finalFarewell 1.2s ease-out forwards;
+}
+
+@keyframes finalFarewell {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.8;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0);
+    }
+}
+.page-fade-out {
+    animation: pageFadeOut 2s ease-out forwards;
+}
+
+@keyframes pageFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.final-transition {
+    animation: purpleFarewell 1.8s ease-out forwards;
+}
+@keyframes purpleFarewell {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    40% {
+        transform: translate(-50%, -50%) scale(1.2);
+        background: rgba(147, 112, 219, 0.4);
+        box-shadow: 0 0 30px rgba(147, 112, 219, 0.5);
+    }
+    80% {
+        transform: translate(-50%, -50%) scale(1.4);
+        background: rgba(128, 0, 128, 0.6);
+        box-shadow: 0 0 40px rgba(128, 0, 128, 0.7);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        background: rgba(75, 0, 130, 0.8);
+        box-shadow: 0 0 50px rgba(75, 0, 130, 0);
+    }
+}
+/* Add this to your existing styles */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1s infinite alternate;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Happy singles day🎉</h1>
+    </header>
+
+    <div class="button-container">
+        <button class="moving-button" onclick="moveButton()">Click here...only if ur beautiful...which ofcourse you are😉😘</button>
+    </div>
+
+    <footer>
+        <p>@Mbuya2.15</p>
+    </footer>
+
+    <script>
+        
+        const buttonTexts = [
+    "Click here, I know you can't resist 😘",
+    "Playing hard to get? I like that about you ",
+    "Your chase game is strong! Come closer... 💫",
+    "Your smile is trouble... the best kind 💫",
+    "Getting warmer... just like my feelings for you ✨",
+   "Your persistence is as attractive as your eyes, one more to go😜",
+    "You caught me! Now let me take you somewhere special... 💖"
+];
+
+
+        let clickCount = 0;
+        function playClickSound() {
+    const clickAudio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-magical-sparkle-transition-2608.mp3');
+    clickAudio.volume = 0.3;
+    clickAudio.play();
+}
+
+function playStarryNightFinale() {
+    const finaleAudio = document.getElementById('starryNightFinale');
+    finaleAudio.volume = 0.4;
+    finaleAudio.play()
+        .then(() => console.log("Playing finale music"))
+        .catch(error => console.log("Audio needs user interaction first"));
+}
+
+        function moveButton() {
+     playClickSound();   
+    const button = document.querySelector('.moving-button');
+    const container = document.querySelector('.button-container');
+    const buttonWidth = button.offsetWidth;
+    const buttonHeight = button.offsetHeight;
+    const minDistance = 200;
+    const margin = 20;
+   
+    if (clickCount >= buttonTexts.length - 1) {
+        button.classList.add('final-transition');
+        playStarryNightFinale();
+        // Add page fade out after button starts transforming
+        setTimeout(() => {
+            document.body.classList.add('page-fade-out');
+        }, 900);
+        
+        // Redirect after both animations complete
+        setTimeout(() => {
+            window.location.href = 'http://127.0.0.1:5500/2.html';
+        }, 2000);
+        return;
+    }
+
+    const containerRect = container.getBoundingClientRect();
+    const maxX = containerRect.width - buttonWidth/2 - margin;
+    const maxY = containerRect.height - buttonHeight/2 - margin;
+    const minX = buttonWidth/2 + margin;
+    const minY = buttonHeight/2 + margin;
+
+    let newX, newY, distance;
+    const currentX = button.offsetLeft;
+    const currentY = button.offsetTop;
+
+    do {
+        newX = Math.floor(Math.random() * (maxX - minX) + minX);
+        newY = Math.floor(Math.random() * (maxY - minY) + minY);
+        distance = Math.sqrt(Math.pow(newX - currentX, 2) + Math.pow(newY - currentY, 2));
+    } while (distance < minDistance);
+
+    button.classList.add('button-fade-out');
+
+    setTimeout(() => {
+        button.style.left = `${newX}px`;
+        button.style.top = `${newY}px`;
+        button.textContent = buttonTexts[clickCount + 1];
+        button.classList.remove('button-fade-out');
+        button.classList.add('button-fade-in');
+    }, 300);
+
+    setTimeout(() => {
+        button.classList.remove('button-fade-in');
+    }, 1500);
+    clickCount++;
+}
+// Add this function to create stars
+function createStars() {
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'stars';
+    
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = Math.random() * 3 + 'px';
+        star.style.height = star.style.width;
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 1 + 's';
+        starsContainer.appendChild(star);
+    }
+    
+    document.body.appendChild(starsContainer);
+}
+
+// Call createStars when the page loads
+document.addEventListener('DOMContentLoaded', createStars);
+
+    </script>
+<!-- Add this right before the closing </body> tag -->
+<audio id="starryNightFinale">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-dreaming-big-31.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
