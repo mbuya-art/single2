@@ -187,6 +187,34 @@
                 background-color: rgba(209, 196, 233, 0.8);
             }
         }
+        /* Add these styles to your existing <style> section */
+.welcome-text {
+    text-align: center;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    margin: 20px auto;
+    padding: 15px;
+    background: rgba(209, 196, 233, 0.1);
+    border-radius: 15px;
+    max-width: 800px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+.welcome-text span {
+    background: linear-gradient(45deg, #ff69b4, #9370db);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
@@ -367,6 +395,9 @@ document.addEventListener('DOMContentLoaded', createStars);
 <audio id="starryNightFinale">
     <source src="https://assets.mixkit.co/music/preview/mixkit-dreaming-big-31.mp3" type="audio/mpeg">
 </audio>
+<div class="welcome-text">
+    <p>But you don't get to celebrate that when <span>I'm here</span> 😙</p>
+</div>
 
 </body>
 </html>
