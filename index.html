@@ -206,7 +206,7 @@
         
         const buttonTexts = [
     "Click here, I know you can't resist 😘",
-    "Playing hard to get? I like that about you ",
+    "Playing hard to get? I like that about you😏",
     "Your chase game is strong! Come closer... 💫",
     "Your smile is trouble... the best kind 💫",
     "Getting warmer... just like my feelings for you ✨",
@@ -271,6 +271,11 @@ function playStarryNightFinale() {
     } while (distance < minDistance);
 
     button.classList.add('button-fade-out');
+            button.style.display = 'block';
+button.style.visibility = 'visible';
+
+clickCount++;
+button.textContent = buttonTexts[clickCount];
 
     setTimeout(() => {
         button.style.left = `${newX}px`;
