@@ -306,6 +306,59 @@ function createStars() {
 
 // Call createStars when the page loads
 document.addEventListener('DOMContentLoaded', createStars);
+        function moveButton() {
+    playClickSound();   
+    const button = document.querySelector('.moving-button');
+    const container = document.querySelector('.button-container');
+    const buttonWidth = button.offsetWidth;
+    const buttonHeight = button.offsetHeight;
+    const minDistance = 200;
+    const margin = 20;
+   
+    if (clickCount >= buttonTexts.length - 1) {
+        button.classList.add('final-transition');
+        playStarryNightFinale();
+        setTimeout(() => {
+            document.body.classList.add('page-fade-out');
+        }, 900);
+        setTimeout(() => {
+            window.location.href = '2.html';
+        }, 2000);
+        return;
+    }
+
+    const containerRect = container.getBoundingClientRect();
+    const maxX = containerRect.width - buttonWidth/2 - margin;
+    const maxY = containerRect.height - buttonHeight/2 - margin;
+    const minX = buttonWidth/2 + margin;
+    const minY = buttonHeight/2 + margin;
+
+    let newX, newY, distance;
+    const currentX = button.offsetLeft;
+    const currentY = button.offsetTop;
+
+    do {
+        newX = Math.floor(Math.random() * (maxX - minX) + minX);
+        newY = Math.floor(Math.random() * (maxY - minY) + minY);
+        distance = Math.sqrt(Math.pow(newX - currentX, 2) + Math.pow(newY - currentY, 2));
+    } while (distance < minDistance);
+
+    button.classList.add('button-fade-out');
+
+    setTimeout(() => {
+        button.style.left = `${newX}px`;
+        button.style.top = `${newY}px`;
+        button.textContent = buttonTexts[clickCount];  // Changed from clickCount + 1
+        button.classList.remove('button-fade-out');
+        button.classList.add('button-fade-in');
+        clickCount++;  // Moved clickCount increment here
+    }, 300);
+
+    setTimeout(() => {
+        button.classList.remove('button-fade-in');
+    }, 1500);
+}
+
 
     </script>
 <!-- Add this right before the closing </body> tag -->
