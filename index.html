@@ -260,6 +260,21 @@
 .fancy-button:nth-child(4) { animation-delay: 0.4s; }
 .fancy-button:nth-child(5) { animation-delay: 0.5s; }
 
+        @keyframes fadeOutButton {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.button-fadeout {
+    animation: fadeOutButton 0.5s ease-out forwards;
+}
+
     </style>
 </head>
 <body>
@@ -290,11 +305,10 @@
         
         const buttonTexts = [
     "I know you can't resist me 😘",
-    "Playing hard to get? I like that😏",
     "Your smile is trouble😑... the best kind😏 ",
     "Getting warmer... just like my feelings for you ✨",
    "Your persistence is as attractive as your eyes, one more to go😜",
-    "You caught me😁! Now, come closer, i wanna take you somewhere special... 💖",
+    "You caught me😅...Now, come closer, i wanna take you somewhere special... 💖",
 ];
 
 
@@ -441,6 +455,13 @@ document.addEventListener('DOMContentLoaded', createStars);
     setTimeout(() => {
         button.classList.remove('button-fade-in');
     }, 1500);
+}
+function fadeOutButton(button) {
+    playClickSound();
+    button.classList.add('button-fadeout');
+    setTimeout(() => {
+        button.style.display = 'none';
+    }, 500);
 }
 
 
